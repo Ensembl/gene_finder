@@ -1,4 +1,4 @@
-# It will take a set of species input dbs on a server, cut their genomes up into fixed length regions and then encode the exon/intron/cds features for each protein coding gene in each sampled region. As output you get one file with each sampled region and another with the encoded version of them.
+# This script takes a set of species input dbs on a server, cuts their genomes up into fixed length regions and then encodes the exon/intron/cds features for each protein coding gene in each sampled region. As output you get one file with each sampled region and another with the encoded version of them.
 #
 # At the moment it only looks at genes on the forward strand, as there are a bunch of extra bits of code and testing needed to correctly encode the reverse strand. But we can look at adding that in later (which will effectively double our possible training set).
 #
