@@ -1,3 +1,18 @@
+# It will take a set of species input dbs on a server, cut their genomes up into fixed length regions and then encode the exon/intron/cds features for each protein coding gene in each sampled region. As output you get one file with each sampled region and another with the encoded version of them.
+#
+# At the moment it only looks at genes on the forward strand, as there are a bunch of extra bits of code and testing needed to correctly encode the reverse strand. But we can look at adding that in later (which will effectively double our possible training set).
+#
+# The way I have been thinking about it is on a per base labelling, i.e. can we use the context of the entire sequence to decide what an individual base should be labelled. So the encoded sequence is really just the set of labels for each base, but the labels can’t be worked out without the surrounding genomic sequence (hence the large genomic regions).
+#
+# I have given a list of potential high quality dbs to train on in the script itself. I did a run last night on them and the output is here:
+# /hps/nobackup2/production/ensembl/fergal/coding/gene_finder/run_1_genomic_seqs.fa
+# /hps/nobackup2/production/ensembl/fergal/coding/gene_finder/run_1_encoded_seqs.fa
+#
+# As the sequences are 500kb long each it’s a little hard to visualise. For the encoded sequences there’s naturally large sections of Os (representing intergenic region), with the gene features making up small regions. Actually in the file listed above you can see a bunch of single exon genes encoded in arabidopsis at the very start of the file “OOOOSSSCCCCCCCCC….CCCCCCCCEEEOOOOO”. Most genes in general have introns, but you will still see plenty of single exon ones too.
+#
+# There’s also some code at the bottom of the script that you can enable if you want to print out the raw and encoded exons, which makes things easier to visualise.
+
+
 use warnings;
 use strict;
 use feature 'say';
