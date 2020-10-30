@@ -38,12 +38,23 @@ def fasta_sequences_to_dataframe(genomic_sequences_path, encoded_sequences_path)
     return examples_dataframe
 
 
-def fasta_sequences_to_pickled_dataframe(genomic_sequences_path, encoded_sequences_path, pickle_path):
+def fasta_sequences_to_pickled_dataframe(genomic_sequences_path, encoded_sequences_path, dataframe_pickle_path):
     """
     """
     examples_dataframe = fasta_sequences_to_dataframe(genomic_sequences_path, encoded_sequences_path)
 
-    examples_dataframe.to_pickle(pickle_path)
+    examples_dataframe.to_pickle(dataframe_pickle_path)
+
+
+def load_data():
+    """
+    """
+    dataframe_pickle_path = data_directory / "sequences_dataframe.pickle"
+    print("loading data...")
+    data = pd.read_pickle(dataframe_pickle_path)
+    print("data loaded")
+
+    return data
 
 
 def main():
@@ -56,11 +67,11 @@ def main():
     args = argument_parser.parse_args()
 
     if args.fasta_sequences_to_pickled_dataframe:
-        genomic_sequences_path = data_directory / "run_1_genomic_seqs-head.fa"
-        encoded_sequences_path = data_directory / "run_1_encoded_seqs-head.fa"
-        sequences_dataframe_pickle_path = data_directory / "sequences_dataframe.pickle"
+        genomic_sequences_path = data_directory / "run_1_genomic_seqs.fa"
+        encoded_sequences_path = data_directory / "run_1_encoded_seqs.fa"
+        dataframe_pickle_path = data_directory / "sequences_dataframe.pickle"
 
-        fasta_sequences_to_pickled_dataframe(genomic_sequences_path, encoded_sequences_path, sequences_dataframe_pickle_path)
+        fasta_sequences_to_pickled_dataframe(genomic_sequences_path, encoded_sequences_path, dataframe_pickle_path)
     else:
         print("nothing to do")
 
