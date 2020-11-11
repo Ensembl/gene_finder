@@ -1,3 +1,18 @@
+# Copyright 2020 EMBL-European Bioinformatics Institute
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 # This script takes a set of species input dbs on a server, cuts their genomes up into fixed length regions and then encodes the exon/intron/cds features for each protein coding gene in each sampled region. As output you get one file with each sampled region and another with the encoded version of them.
 #
 # At the moment it only looks at genes on the forward strand, as there are a bunch of extra bits of code and testing needed to correctly encode the reverse strand. But we can look at adding that in later (which will effectively double our possible training set).
