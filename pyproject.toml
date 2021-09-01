@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gene_finder"
+version = "0.1.0"
+description = ""
+authors = ["William Stark <william@ebi.ac.uk>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.1.3"
+biopython = "^1.78"
+
+[tool.poetry.dev-dependencies]
+jupyterlab = "^2.2.9"
+pytest = "^6.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
